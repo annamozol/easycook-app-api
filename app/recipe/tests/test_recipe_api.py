@@ -3,6 +3,7 @@ Tests for recipes APIs.
 """
 from decimal import Decimal
 import os
+import pdb
 import tempfile
 
 from PIL import Image
@@ -299,7 +300,16 @@ class PrivateRecipeAPITests(TestCase):
             'title': 'Cauliflower Tacos',
             'time_minutes': 40,
             'price': Decimal('2.75'),
-            'ingredients': [{'name': 'Cauliflower'}, {'name': 'Salt'}],
+            'ingredients': [
+                {'name': 'Cauliflower',
+                 'quantity':1,
+                 'measurement': 'kilo'
+                },
+                {'name': 'Salt',
+                 'quantity': 1,
+                 'measurement': 'tea spoon'
+                },
+            ],
         }
 
         res = self.client.post(RECIPES_URL, payload, format='json')
@@ -312,18 +322,32 @@ class PrivateRecipeAPITests(TestCase):
         for ingredient in payload['ingredients']:
             exists = recipe.ingredients.filter(
                 name=ingredient['name'],
+                quantity=ingredient['quantity'],
+                measurement=ingredient['measurement'],
                 user=self.user,
             ).exists()
             self.assertTrue(exists)
 
     def test_create_recipe_with_existing_ingredient(self):
         """Test creating a recipe with existing ingredient."""
-        ingredient = Ingredient.objects.create(user=self.user, name='Lemon')
+        ingredient = Ingredient.objects.create(
+            user=self.user,
+            name='Lemon',
+            quantity=2,
+        )
         payload = {
             'title': 'Vietnamese Soup',
             'time_minutes': 60,
             'price': Decimal('5.75'),
-            'ingredients': [{'name': 'Lemon'}, {'name': 'Fish Sauce'}],
+            'ingredients': [
+                {'name': 'Lemon',
+                 'quantity': 2
+                },
+                {'name': 'Fish Sauce',
+                 'quantity': 3,
+                 'measurement': 'table spoon'
+                },
+            ],
         }
         res = self.client.post(RECIPES_URL, payload, format='json')
 
@@ -336,6 +360,7 @@ class PrivateRecipeAPITests(TestCase):
         for ingredient in payload['ingredients']:
             exists = recipe.ingredients.filter(
                 name=ingredient['name'],
+                quantity=ingredient['quantity'],
                 user=self.user,
             ).exists()
             self.assertTrue(exists)
@@ -344,7 +369,7 @@ class PrivateRecipeAPITests(TestCase):
         """Test creating an ingredient when updating a recipe."""
         recipe = create_recipe(user=self.user)
 
-        payload = {'ingredients': [{'name': 'Limes'}]}
+        payload = {'ingredients': [{'name': 'Limes', 'quantity': 3}]}
         url = detail_url(recipe.id)
         res = self.client.patch(url, payload, format='json')
 
