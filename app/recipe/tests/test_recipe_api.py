@@ -3,7 +3,6 @@ Tests for recipes APIs.
 """
 from decimal import Decimal
 import os
-import pdb
 import tempfile
 
 from PIL import Image
@@ -302,13 +301,11 @@ class PrivateRecipeAPITests(TestCase):
             'price': Decimal('2.75'),
             'ingredients': [
                 {'name': 'Cauliflower',
-                 'quantity':1,
-                 'measurement': 'kilo'
-                },
+                 'quantity': 1,
+                 'measurement': 'kilo'},
                 {'name': 'Salt',
                  'quantity': 1,
-                 'measurement': 'tea spoon'
-                },
+                 'measurement': 'tea spoon'},
             ],
         }
 
@@ -341,12 +338,10 @@ class PrivateRecipeAPITests(TestCase):
             'price': Decimal('5.75'),
             'ingredients': [
                 {'name': 'Lemon',
-                 'quantity': 2
-                },
+                 'quantity': 2},
                 {'name': 'Fish Sauce',
                  'quantity': 3,
-                 'measurement': 'table spoon'
-                },
+                 'measurement': 'table spoon'},
             ],
         }
         res = self.client.post(RECIPES_URL, payload, format='json')

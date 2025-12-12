@@ -85,8 +85,8 @@ class ModelTests(TestCase):
         ingredient = models.Ingredient.objects.create(
             user=user,
             name='Ingredient 1',
-            quantity = 2,
-            measurement = 'grams'
+            quantity=2,
+            measurement='grams'
         )
 
         self.assertEqual(str(ingredient), ingredient.name)
