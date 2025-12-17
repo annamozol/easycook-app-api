@@ -58,10 +58,7 @@ class ModelTests(TestCase):
 
     def test_create_recipe(self):
         """Test creating a recipe is successful."""
-        user = get_user_model().objects.create_user(
-            'test@example.com',
-            'password123',
-        )
+        user = create_user()
         recipe = models.Recipe.objects.create(
             user=user,
             title='Sample recipe name',
@@ -99,3 +96,13 @@ class ModelTests(TestCase):
         file_path = models.recipe_image_file_path(None, 'example.jpg')
 
         self.assertEqual(file_path, f'uploads/recipe/{uuid}.jpg')
+
+    def test_create_menu(self):
+        """Test creating a menu is successful."""
+        user = create_user()
+        menu = models.Menu.objects.create(
+            user=user,
+            title='Sample Menu',
+        )
+
+        self.assertEqual(str(menu), menu.title)

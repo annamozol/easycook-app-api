@@ -99,3 +99,16 @@ class Ingredient(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Menu(models.Model):
+    """Menu object."""
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+    )
+    title = models.CharField(max_length=255)
+    recipes = models.ManyToManyField('Recipe')
+
+    def __str__(self):
+        return self.title
