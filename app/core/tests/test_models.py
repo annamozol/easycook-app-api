@@ -102,7 +102,7 @@ class ModelTests(TestCase):
         user = create_user()
         menu = models.Menu.objects.create(
             user=user,
-            title='Sample Menu',
+            name='Sample Menu',
         )
 
-        self.assertEqual(str(menu), menu.title)
+        self.assertEqual(str(menu), menu.name)

@@ -107,8 +107,8 @@ class Menu(models.Model):
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
     )
-    title = models.CharField(max_length=255)
+    name = models.CharField(max_length=255)
     recipes = models.ManyToManyField('Recipe')
 
     def __str__(self):
-        return self.title
+        return self.name
