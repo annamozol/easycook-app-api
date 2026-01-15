@@ -30,7 +30,6 @@ class MenuSerializer(serializers.ModelSerializer):
         return menu
 
 
-
 class MenuDetailSerializer(MenuSerializer):
     """Serializer for menu detail view."""
     recipes = RecipeSerializer(many=True, read_only=True)

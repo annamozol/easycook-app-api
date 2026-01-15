@@ -101,7 +101,7 @@ class PrivateMenuAPITests(TestCase):
 
     def test_create_menu(self):
         """Test creating a menu."""
-        payload = {'name': 'New Menu',}
+        payload = {'name': 'New Menu'}
         res = self.client.post(MENUS_URL, payload)
 
         self.assertEqual(res.status_code, status.HTTP_201_CREATED)
@@ -178,7 +178,7 @@ class PrivateMenuAPITests(TestCase):
     def test_clear_menu_recipes(self):
         """Test clearing a menu's recipes."""
         recipe = Recipe.objects.create(
-            user = self.user,
+            user=self.user,
             title='Sample recipe',
             time_minutes=30,
             price=Decimal('5.99'),
