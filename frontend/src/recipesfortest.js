@@ -19,6 +19,7 @@ const recipes = [
                 "measurement": "grams"
             }
         ],
+        "description": "Recipe steps of a classic Italian pasta dish with rich, meaty sauce.",
         "image": "/images/Spaghetti_Bolognese.jpg"
     },
     {
@@ -47,6 +48,7 @@ const recipes = [
                 "measurement": "grams"
             }
         ],
+        "description": "A light and fresh pasta dish with seasonal vegetables and a hint of garlic.",
         "image": "/images/PastaPrimavera.jpg"
     }
 ]
