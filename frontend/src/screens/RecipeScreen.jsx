@@ -1,8 +1,8 @@
 import React from "react";
-import { Link, useParams } from "react-router-dom";
-import { Row, Col, Image, ListGroup, Button, Card } from "react-bootstrap";
+import { useParams } from "react-router-dom";
+import { Row, Col, Image, ListGroup, Button } from "react-bootstrap";
 import recipes from "../recipesfortest";
-import "./RecipeScreen.css";
+import "./recipescreen.css";
 
 function RecipeScreen() {
     const { id } = useParams();

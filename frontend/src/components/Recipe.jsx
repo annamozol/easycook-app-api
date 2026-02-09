@@ -1,22 +1,20 @@
 import React from 'react';
-import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import './recipeimage.css';
 
 function Recipe({ recipe }) {
     return (
-        <Card className="my-3 p-3 rounded">
+        <div className="my-3 p-3">
             <Link to={`/recipe/${recipe.id}`}>
-                <Card.Img src={recipe.image} />
+                <img className="recipe-card-image" src={recipe.image} alt={recipe.title} />
             </Link>
 
-            <Card.Body>
+            <div className="mt-2">
                 <a href={`/recipe/${recipe.id}`}>
-                    <Card.Title as="div">
-                        <strong>{recipe.title}</strong>
-                    </Card.Title>
+                    <strong>{recipe.title}</strong>
                 </a>
-            </Card.Body>
-        </Card>
+            </div>
+        </div>
     )
 }
 
