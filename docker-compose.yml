@@ -20,8 +20,6 @@ services:
       - DB_NAME=devdb
       - DB_USER=devuser
       - DB_PASS=changeme
-      - SECRET_KEY=django-insecure-dev-only-change-in-production
-      - DEBUG=True
     depends_on:
       - db
 
