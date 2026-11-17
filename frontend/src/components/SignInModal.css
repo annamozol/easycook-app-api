@@ -1,0 +1,110 @@
+.signin-modal__backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(34, 34, 31, .45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    z-index: 100;
+}
+
+.signin-modal {
+    position: relative;
+    width: 100%;
+    max-width: 380px;
+    background: var(--color-surface-alt);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 40px;
+    box-shadow: 0 24px 48px rgba(0, 0, 0, .18);
+}
+
+.signin-modal__close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: transparent;
+    border: none;
+    font-size: 22px;
+    line-height: 1;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    padding: 6px;
+}
+
+.signin-modal__title {
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: -.02em;
+    color: var(--color-text);
+}
+
+.signin-modal__subtitle {
+    font-size: 14px;
+    color: var(--color-text-secondary);
+    margin-top: 8px;
+    line-height: 1.5;
+}
+
+.signin-modal__form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-top: 28px;
+}
+
+.signin-modal__field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.signin-modal__field span {
+    font-size: 12px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--color-text-faint);
+    font-weight: 700;
+}
+
+.signin-modal__field input {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 12px 14px;
+    font-size: 15px;
+    color: var(--color-text);
+    background: var(--color-surface-alt);
+    outline: none;
+}
+
+.signin-modal__field input:focus {
+    border-color: var(--color-accent);
+}
+
+.signin-modal__submit {
+    background: var(--color-accent);
+    color: var(--color-accent-text);
+    border: none;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: .03em;
+    padding: 15px;
+    margin-top: 6px;
+    border-radius: var(--radius-pill);
+    box-shadow: 0 4px 12px rgba(240, 178, 133, .4);
+    cursor: pointer;
+}
+
+.signin-modal__footer {
+    margin-top: 22px;
+    text-align: center;
+    font-size: 13px;
+    color: var(--color-text-secondary);
+}
+
+.signin-modal__footer span {
+    color: var(--color-accent-strong);
+    font-weight: 700;
+    cursor: pointer;
+}

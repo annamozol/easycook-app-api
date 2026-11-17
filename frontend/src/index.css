@@ -1,3 +1,60 @@
-main{
-  min-height: 85vh
+:root {
+  --color-bg: #e6e6e2;
+  --color-surface: #f7f5f0;
+  --color-surface-alt: #fff;
+  --color-border: #e5e0d6;
+  --color-border-soft: #ece7dd;
+  --color-border-faint: #f0ebe1;
+
+  --color-text: #22221f;
+  --color-text-secondary: #6f6f68;
+  --color-text-tertiary: #54544d;
+  --color-text-muted: #8a8a82;
+  --color-text-faint: #9a9a92;
+  --color-text-placeholder: #a3a399;
+
+  --color-accent: #f0b285;
+  --color-accent-text: #4a3524;
+  --color-accent-strong: #b9743e;
+  --color-accent-soft-bg: #faeede;
+  --color-accent-soft-border: #e0b48a;
+
+  --color-placeholder-a: #efeae0;
+  --color-placeholder-b: #eae4d9;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  --radius-pill: 999px;
+
+  --font-body: 'Hanken Grotesk', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+button, input {
+  font-family: inherit;
+}
+
+main {
+  min-height: 85vh;
 }

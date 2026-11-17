@@ -1,61 +1,82 @@
 import React from "react";
-import { useParams } from "react-router-dom";
-import { Row, Col, Image, ListGroup, Button } from "react-bootstrap";
-import recipes from "../recipesfortest";
-import "./recipescreen.css";
+import { Link, useParams } from "react-router-dom";
+import { useRecipes } from "../context/RecipesContext";
+import "./RecipeScreen.css";
+
+function formatIngredient(ingredient) {
+    if (typeof ingredient === 'string') return ingredient;
+    if (!ingredient.quantity) return ingredient.name;
+    return `${ingredient.quantity}${ingredient.measurement ? ' ' + ingredient.measurement : ''} ${ingredient.name}`;
+}
 
 function RecipeScreen() {
     const { id } = useParams();
+    const { recipes } = useRecipes();
     const recipe = recipes.find((r) => String(r.id) === id);
 
     if (!recipe) {
-        return <div className="mt-5"><h3>Recipe not found</h3></div>;
+        return <div className="recipe-detail__not-found"><h3>Recipe not found</h3></div>;
     }
 
     return (
-        <div>
-            <div className="text-center mb-4">
-                <h2>{recipe.title}</h2>
+        <div className="recipe-detail">
+            <div className="recipe-detail__breadcrumb">
+                Recipes / {recipe.category}
             </div>
 
-            <Row>
-                <Col md={6}>
-                    <Image className="recipe-image" src={recipe.image} alt={recipe.title} fluid/>
-                </Col>
+            <div className="recipe-detail__layout">
+                <div className="recipe-detail__main">
+                    <div className="recipe-detail__tag">{recipe.category} · {recipe.cuisine}</div>
+                    <h1 className="recipe-detail__title">{recipe.title}</h1>
+                    <p className="recipe-detail__blurb">{recipe.blurb}</p>
 
-                <Col md={4}>
-                    <ListGroup variant="flush">
+                    <div className="recipe-detail__stats">
+                        <div className="recipe-detail__stat">
+                            <div className="recipe-detail__stat-label">Time</div>
+                            <div className="recipe-detail__stat-value">{recipe.time_minutes} min</div>
+                        </div>
+                        <div className="recipe-detail__stat">
+                            <div className="recipe-detail__stat-label">Serves</div>
+                            <div className="recipe-detail__stat-value">{recipe.servings}</div>
+                        </div>
+                        <div className="recipe-detail__stat">
+                            <div className="recipe-detail__stat-label">Cost</div>
+                            <div className="recipe-detail__stat-value">${recipe.price}</div>
+                        </div>
+                    </div>
 
-                        <ListGroup.Item>
-                            <strong>Ingredients:</strong>
-                            <ul>
-                                {recipe.ingredients.map((ingredient) => (
-                                    <li key={ingredient.id}>
-                                        {ingredient.name} - {ingredient.quantity} {ingredient.measurement}
-                                    </li>
-                                ))}
-                            </ul>
-                        </ListGroup.Item>
-                    </ListGroup>
-                </Col>
-            </Row>
+                    <div className="recipe-detail__method">
+                        <div className="recipe-detail__section-label">Method</div>
+                        <ol className="recipe-detail__steps">
+                            {recipe.steps.map((step, index) => (
+                                <li key={index}>
+                                    <span className="recipe-detail__step-index">0{index + 1}</span>
+                                    <span>{step}</span>
+                                </li>
+                            ))}
+                        </ol>
+                    </div>
+                </div>
 
-            <Row className="mb-4">
-                <Col md={10}>
-                    <ListGroup variant="flush">
-                        <ListGroup.Item>
-                            <strong>Recipe:</strong>
-                            <div className="mt-2">{recipe.description}</div>
-                        </ListGroup.Item>
-
-                        <ListGroup.Item>
-                            <Button className="btn-block" type="button">Add to Menu</Button>
-                        </ListGroup.Item>
-                    </ListGroup>
-                </Col>
-            </Row>
-
-
+                <div className="recipe-detail__side">
+                    <div className="recipe-detail__photo">
+                        {recipe.image ? (
+                            <img src={recipe.image} alt={recipe.title} />
+                        ) : (
+                            <span className="recipe-detail__photo-tag">photo · {recipe.title}</span>
+                        )}
+                    </div>
+                    <div className="recipe-detail__ingredients">
+                        <div className="recipe-detail__section-label">Ingredients</div>
+                        <ul>
+                            {recipe.ingredients.map((ingredient, index) => (
+                                <li key={ingredient.id ?? index}>{formatIngredient(ingredient)}</li>
+                            ))}
+                        </ul>
+                        <Link to="/menus" className="recipe-detail__add-to-menu">Add to menu</Link>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }

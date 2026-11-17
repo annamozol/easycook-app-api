@@ -1,56 +1,197 @@
 const recipes = [
     {
-        "id": 1,
-        "title": "Spaghetti Bolognese",
-        "time_minutes": 40,
-        "price": "20.00",
-        "link": "example.com/spaghetti-bolognese",
-        "tags": [
-            {
-                "id": 1,
-                "name": "dinner"
-            }
+        id: 1,
+        title: "Spaghetti Bolognese",
+        category: "Dinner",
+        cuisine: "Italian",
+        time_minutes: 40,
+        servings: 4,
+        price: "20",
+        image: "/images/Spaghetti_Bolognese.jpg",
+        blurb: "A classic Italian pasta with a slow, rich, meaty sauce — comfortable enough for a weeknight, good enough for company.",
+        ingredients: [
+            { id: 1, name: "spaghetti", quantity: 180, measurement: "g" },
+            { id: 2, name: "ground beef", quantity: 400, measurement: "g" },
+            { id: 3, name: "onion, finely diced", quantity: 1, measurement: "" },
+            { id: 4, name: "garlic, minced", quantity: 2, measurement: "cloves" },
+            { id: 5, name: "crushed tomatoes", quantity: 400, measurement: "g" },
+            { id: 6, name: "tomato paste", quantity: 2, measurement: "tbsp" },
+            { id: 7, name: "Parmesan, to serve", quantity: null, measurement: "" },
         ],
-        "ingredients": [
-            {
-                "id": 1,
-                "name": "spaghetti",
-                "quantity": 180,
-                "measurement": "grams"
-            }
+        steps: [
+            "Brown the beef in a wide pan over medium-high heat.",
+            "Add onion and garlic; cook until soft and fragrant.",
+            "Stir in tomato paste, then the crushed tomatoes. Simmer 25 minutes.",
+            "Cook spaghetti until al dente; reserve a little pasta water.",
+            "Toss the pasta through the sauce, loosen with pasta water, and serve with Parmesan.",
         ],
-        "description": "Recipe steps of a classic Italian pasta dish with rich, meaty sauce.",
-        "image": "/images/Spaghetti_Bolognese.jpg"
     },
     {
-        "id": 2,
-        "title": "Pasta Primavera",
-        "time_minutes": 30,
-        "price": "18.00",
-        "link": "example.com/pasta-primavera",
-        "tags": [
-            {
-                "id": 2,
-                "name": "lunch"
-            }
+        id: 2,
+        title: "Pasta Primavera",
+        category: "Lunch",
+        cuisine: "Italian",
+        time_minutes: 30,
+        servings: 2,
+        price: "18",
+        image: "/images/PastaPrimavera.jpg",
+        blurb: "A light and fresh pasta dish with seasonal vegetables and a hint of garlic.",
+        ingredients: [
+            { id: 1, name: "pasta", quantity: 150, measurement: "g" },
+            { id: 2, name: "mixed vegetables", quantity: 100, measurement: "g" },
+            { id: 3, name: "garlic, sliced", quantity: 2, measurement: "cloves" },
+            { id: 4, name: "olive oil", quantity: 2, measurement: "tbsp" },
+            { id: 5, name: "Parmesan, to serve", quantity: null, measurement: "" },
         ],
-        "ingredients": [
-            {
-                "id": 2,
-                "name": "pasta",
-                "quantity": 150,
-                "measurement": "grams"
-            },
-            {
-                "id": 3,
-                "name": "mixed vegetables",
-                "quantity": 100,
-                "measurement": "grams"
-            }
+        steps: [
+            "Cook the pasta until al dente; reserve a little pasta water.",
+            "Sauté garlic in olive oil until fragrant.",
+            "Add the mixed vegetables and cook until just tender.",
+            "Toss the pasta through the vegetables, loosen with pasta water, and finish with Parmesan.",
         ],
-        "description": "A light and fresh pasta dish with seasonal vegetables and a hint of garlic.",
-        "image": "/images/PastaPrimavera.jpg"
-    }
-]
+    },
+    {
+        id: 3,
+        title: "Roast Chicken & Thyme",
+        category: "Dinner",
+        cuisine: "French",
+        time_minutes: 55,
+        servings: 4,
+        price: "22",
+        image: null,
+        blurb: "A simple roast chicken, rubbed with butter and thyme, that fills the kitchen with the smell of a proper Sunday dinner.",
+        ingredients: [
+            { id: 1, name: "whole chicken", quantity: 1.5, measurement: "kg" },
+            { id: 2, name: "butter, softened", quantity: 40, measurement: "g" },
+            { id: 3, name: "thyme, fresh", quantity: 6, measurement: "sprigs" },
+            { id: 4, name: "lemon", quantity: 1, measurement: "" },
+            { id: 5, name: "garlic head, halved", quantity: 1, measurement: "" },
+        ],
+        steps: [
+            "Rub the chicken all over with butter, salt, and thyme.",
+            "Stuff the cavity with lemon and garlic.",
+            "Roast at 200°C for 45–50 minutes, until juices run clear.",
+            "Rest for 10 minutes before carving.",
+        ],
+    },
+    {
+        id: 4,
+        title: "Lemon Ricotta Pancakes",
+        category: "Breakfast",
+        cuisine: "American",
+        time_minutes: 25,
+        servings: 2,
+        price: "10",
+        image: null,
+        blurb: "Fluffy pancakes lifted with ricotta and lemon zest — a slow, bright weekend breakfast.",
+        ingredients: [
+            { id: 1, name: "flour", quantity: 150, measurement: "g" },
+            { id: 2, name: "ricotta", quantity: 200, measurement: "g" },
+            { id: 3, name: "eggs", quantity: 2, measurement: "" },
+            { id: 4, name: "lemon, zested", quantity: 1, measurement: "" },
+            { id: 5, name: "baking powder", quantity: 1, measurement: "tsp" },
+        ],
+        steps: [
+            "Whisk the ricotta, eggs, and lemon zest together.",
+            "Fold in the flour and baking powder until just combined.",
+            "Cook spoonfuls of batter in a buttered pan until golden on both sides.",
+            "Serve warm with extra lemon and a dusting of sugar.",
+        ],
+    },
+    {
+        id: 5,
+        title: "Miso-Glazed Salmon",
+        category: "Dinner",
+        cuisine: "Japanese",
+        time_minutes: 35,
+        servings: 2,
+        price: "24",
+        image: null,
+        blurb: "Sweet, salty miso glaze caramelized under the broiler — restaurant-quality salmon in half an hour.",
+        ingredients: [
+            { id: 1, name: "salmon fillets", quantity: 2, measurement: "" },
+            { id: 2, name: "white miso", quantity: 2, measurement: "tbsp" },
+            { id: 3, name: "mirin", quantity: 2, measurement: "tbsp" },
+            { id: 4, name: "soy sauce", quantity: 1, measurement: "tbsp" },
+            { id: 5, name: "sugar", quantity: 1, measurement: "tsp" },
+        ],
+        steps: [
+            "Whisk together miso, mirin, soy sauce, and sugar.",
+            "Marinate the salmon in the glaze for 15 minutes.",
+            "Broil for 8–10 minutes until caramelized and just cooked through.",
+        ],
+    },
+    {
+        id: 6,
+        title: "Garden Grain Bowl",
+        category: "Lunch",
+        cuisine: "Mediterranean",
+        time_minutes: 20,
+        servings: 2,
+        price: "14",
+        image: null,
+        blurb: "A quick, colorful bowl of grains, roasted vegetables, and a lemony dressing.",
+        ingredients: [
+            { id: 1, name: "cooked farro or quinoa", quantity: 300, measurement: "g" },
+            { id: 2, name: "cherry tomatoes", quantity: 150, measurement: "g" },
+            { id: 3, name: "cucumber, diced", quantity: 1, measurement: "" },
+            { id: 4, name: "feta, crumbled", quantity: 60, measurement: "g" },
+            { id: 5, name: "olive oil & lemon dressing", quantity: null, measurement: "" },
+        ],
+        steps: [
+            "Combine the grains with tomatoes and cucumber.",
+            "Top with crumbled feta.",
+            "Dress with olive oil and lemon just before serving.",
+        ],
+    },
+    {
+        id: 7,
+        title: "Dark Chocolate Tart",
+        category: "Dessert",
+        cuisine: "French",
+        time_minutes: 60,
+        servings: 8,
+        price: "16",
+        image: null,
+        blurb: "A rich, glossy dark chocolate tart in a buttery shell — small slices go a long way.",
+        ingredients: [
+            { id: 1, name: "tart shell, blind-baked", quantity: 1, measurement: "" },
+            { id: 2, name: "dark chocolate", quantity: 250, measurement: "g" },
+            { id: 3, name: "heavy cream", quantity: 250, measurement: "ml" },
+            { id: 4, name: "butter", quantity: 30, measurement: "g" },
+            { id: 5, name: "sea salt, to finish", quantity: null, measurement: "" },
+        ],
+        steps: [
+            "Heat the cream just to a simmer and pour over the chopped chocolate.",
+            "Stir until smooth, then whisk in the butter.",
+            "Pour into the tart shell and chill for at least 2 hours.",
+            "Finish with a pinch of sea salt before serving.",
+        ],
+    },
+    {
+        id: 8,
+        title: "Shakshuka",
+        category: "Breakfast",
+        cuisine: "Middle Eastern",
+        time_minutes: 30,
+        servings: 4,
+        price: "12",
+        image: null,
+        blurb: "Eggs poached in a spiced, simmered tomato and pepper sauce — one pan, straight to the table.",
+        ingredients: [
+            { id: 1, name: "crushed tomatoes", quantity: 400, measurement: "g" },
+            { id: 2, name: "red pepper, sliced", quantity: 1, measurement: "" },
+            { id: 3, name: "onion, sliced", quantity: 1, measurement: "" },
+            { id: 4, name: "cumin & paprika", quantity: 1, measurement: "tsp each" },
+            { id: 5, name: "eggs", quantity: 4, measurement: "" },
+        ],
+        steps: [
+            "Sauté onion and pepper until soft.",
+            "Stir in the spices, then the crushed tomatoes. Simmer 10 minutes.",
+            "Make wells in the sauce and crack in the eggs.",
+            "Cover and cook until the whites are set but yolks are still soft.",
+        ],
+    },
+];
 
 export default recipes;

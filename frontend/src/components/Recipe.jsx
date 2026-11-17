@@ -1,20 +1,22 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './recipeimage.css';
+import './Recipe.css';
 
 function Recipe({ recipe }) {
     return (
-        <div className="my-3 p-3">
-            <Link to={`/recipe/${recipe.id}`}>
-                <img className="recipe-card-image" src={recipe.image} alt={recipe.title} />
-            </Link>
-
-            <div className="mt-2">
-                <a href={`/recipe/${recipe.id}`}>
-                    <strong>{recipe.title}</strong>
-                </a>
+        <Link className="recipe-card" to={`/recipe/${recipe.id}`}>
+            <div className="recipe-card__photo">
+                {recipe.image ? (
+                    <img src={recipe.image} alt={recipe.title} />
+                ) : (
+                    <span className="recipe-card__photo-tag">photo · {recipe.title}</span>
+                )}
             </div>
-        </div>
+            <div className="recipe-card__meta">
+                <div className="recipe-card__title">{recipe.title}</div>
+                <div className="recipe-card__time">{recipe.time_minutes} min</div>
+            </div>
+        </Link>
     )
 }
 

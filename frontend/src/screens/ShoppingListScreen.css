@@ -1,0 +1,107 @@
+.shopping {
+    padding: 40px 0 56px;
+}
+
+.shopping__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.shopping__title {
+    font-size: 36px;
+    font-weight: 800;
+    letter-spacing: -.03em;
+    color: var(--color-text);
+}
+
+.shopping__subtitle {
+    font-size: 16px;
+    color: var(--color-text-secondary);
+    margin-top: 8px;
+}
+
+.shopping__actions {
+    display: flex;
+    gap: 10px;
+}
+
+.shopping__action {
+    background: transparent;
+    border: 1px solid var(--color-border);
+    color: var(--color-text-tertiary);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 10px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.shopping__panel {
+    background: var(--color-surface-alt);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    max-width: 760px;
+}
+
+.shopping__panel-header {
+    background: var(--color-accent);
+    color: var(--color-accent-text);
+    text-align: center;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    padding: 15px;
+}
+
+.shopping__panel-body {
+    padding: 12px 32px 28px;
+}
+
+.shopping__category {
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: .03em;
+    color: var(--color-text);
+    margin-top: 26px;
+    margin-bottom: 6px;
+}
+
+.shopping__item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--color-border-faint);
+}
+
+.shopping__checkbox {
+    width: 18px;
+    height: 18px;
+    border: 1.5px solid #cfc8bb;
+    border-radius: 4px;
+    flex-shrink: 0;
+}
+
+.shopping__item-name {
+    flex: 1;
+    font-size: 15px;
+    color: #3f3f3a;
+}
+
+.shopping__item-qty {
+    font-size: 14px;
+    color: var(--color-text-muted);
+    white-space: nowrap;
+}
+
+@media (max-width: 700px) {
+    .shopping__panel-body {
+        padding: 12px 20px 24px;
+    }
+}

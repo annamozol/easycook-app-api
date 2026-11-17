@@ -1,14 +1,17 @@
 import React from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
+import './Footer.css';
 
 function Footer() {
     return (
-        <footer>
-            <Container>
-                <Row>
-                    <Col className="text-center py-3">Copyright &copy; 2026 Easy Cook</Col>
-                </Row>
-            </Container>
+        <footer className="site-footer">
+            <div className="site-footer__inner">
+                <span className="site-footer__copyright">© 2026 EasyCook</span>
+                <div className="site-footer__links">
+                    <span>About</span>
+                    <span>Contact</span>
+                    <span>Newsletter</span>
+                </div>
+            </div>
         </footer>
     )
 }
